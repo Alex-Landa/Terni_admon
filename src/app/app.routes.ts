@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router';
 //////////////////////importacion de componente simple
-import { LoginComponent } from './Components/login/login.component';
-import { ProductosComponent } from './Components/productos/productos.component';
+import { LoginComponent } from './Components/pages/login/login.component';
+import { ProductosComponent } from './Components/pages/home_page/productos.component';
 ////////////////////////////////////////////
 export const routes: Routes = [
     {path:'login',component:LoginComponent},

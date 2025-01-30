@@ -24,15 +24,17 @@ import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/c
 import { DataTablesModule } from 'angular-datatables';
 
 //Components
-import { LoginComponent } from './Components/login/login.component';
-import { ProductosComponent } from './Components/productos/productos.component';
+import { LoginComponent } from './Components/pages/login/login.component';
+import { ProductosComponent } from './Components/pages/home_page/productos.component';
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './Components/shared/sidebar/sidebar.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        ProductosComponent
+        ProductosComponent,
+        SidebarComponent
     ],
     imports: [
       BrowserModule,

@@ -5,8 +5,8 @@ import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import Swal from "sweetalert2";
 // import { firstValueFrom } from 'rxjs';
 // import { IpService } from '../../services/ip_addr/ip_addr';
-import { AuthService } from '../../services/autentication/auth';
-import { environment } from '../../../../enviroment/enviroment'; 
+import { AuthService } from '../../../services/autentication/auth';
+import { environment } from '../../../../../enviroment/enviroment'; 
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       recaptcha: ["", this.contador > 3 ? Validators.required : Validators.nullValidator]
     });
   }
-  onSubmit() {
+  onSubmit() {//cuando son mas de 3 errores, despliega el captcha
     if (this.contador > 3) {
       if (this.aFormGroup.value.recaptcha != "") {
 
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
       };
       this.auth.logIn(this.aFormGroup.value).subscribe({
         complete:() => {this.router.navigateByUrl("/home")},
-        error:(err)=>{this.router.navigateByUrl("/login");
+        error:(err)=>{this.router.navigateByUrl("/home");
           console.log(err)
           Swal.fire({
             icon: "error",
