@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
           password: this.aFormGroup.value.password,
         };
         this.auth.logIn(this.aFormGroup.value).subscribe({
-          complete:() => {this.router.navigateByUrl("/productos")},
+          complete:() => {this.router.navigateByUrl("/home")},
           error:(err)=>{this.router.navigateByUrl("/login"),
             Swal.fire({
               icon: "error",

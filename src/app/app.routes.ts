@@ -7,7 +7,8 @@ import { ProductosComponent } from './Components/pages/home_page/productos.compo
 export const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path: '**', component: LoginComponent },
-    {path: 'home', component: ProductosComponent }
+    {path: 'home', component: ProductosComponent },
+    // {path: 'home', component: ProductosComponent }
 ];
 
 

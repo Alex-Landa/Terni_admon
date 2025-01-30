@@ -28,13 +28,14 @@ import { LoginComponent } from './Components/pages/login/login.component';
 import { ProductosComponent } from './Components/pages/home_page/productos.component';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './Components/shared/sidebar/sidebar.component';
-
+import { HeaderComponent } from './Components/shared/header/header.component';
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
         ProductosComponent,
-        SidebarComponent
+        SidebarComponent,
+        HeaderComponent
     ],
     imports: [
       BrowserModule,
