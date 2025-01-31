@@ -1,74 +1,38 @@
-<div class="sidebar" [class.sidebar-close]="!openSidebar">
-  <div class="logo-details">
-    <div class="logo">
-      <div class="hamburger-menu">
-        <input type="checkbox" id="checkbox-hamburger-menu" [(ngModel)]="openSidebar" (change)="opener()" />
-        <label class="label-hamburger-menu" for="checkbox-hamburger-menu">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </label>
+<nav class="sidebar d-flex flex-column flex-shrink-0 position-fixed" [class.collapsed]="!openSidebar">
+	<button class="toggle-btn" (click)="toggleSidebar()">
+		<i><</i>
+	</button>
 
-      </div>
-      <!-- insertar hamborgueso-->
-    </div>
-  </div>
-  <div class="profile">
-    <img src="assets/images/user.png" alt="profile_picture">
-    <h3>{{dataUser.username}}</h3>
-    <p>{{dataUser.role}}</p>
-    <a routerLink="profile" class="showProfile">
-      <span>Ver perfil</span>
-    </a>
-  </div>
-  <ul class="nav-links" id="nav-links">
-    <li *ngFor="let item of menuSidebar" #itemEl routerLinkActive="active">
-        <!-- <ng-template [ngxPermissionsOnly]="[item.ngxPermission_menu]"> -->
-        <div *ngIf="item.sub_menu.length == 0" class="dropdown-title">
-          <a [routerLink]="[item.link]">
-            <i [class]="item.icon" #itemEl routerLinkActive="active"></i>
-            <span class="link_name">{{ item.link_name }}</span>
-          </a>
-        </div>
-        <div *ngIf="item.sub_menu.length > 0" class="dropdown-title" (click)="showSubmenu(itemEl)">
-          <a>
-            <i [class]="item.icon" routerLinkActive="active"></i>
-            <span class="link_name">{{ item.link_name }}</span>
-          </a>
-          <i class="pi pi-chevron-down arrow" style="font-size: 13px;"></i>
-        </div>
-        <ul class="sub-menu" [class.blank]="item.sub_menu.length == 0">
-          <li>
-            <a class="link_name">{{ item.link_name }}</a>
-          </li>
-          <li *ngFor="let item_sub of item.sub_menu" routerLinkActive="active">
-            <!-- <ng-template [ngxPermissionsOnly]="[item_sub.ngxPermission_sub_menu]"> -->
-              <a [routerLink]="[item_sub.link]">{{ item_sub.link_name }}</a>
-            <!-- </ng-template> -->
-          </li>
-        </ul>
-      <!-- </ng-template> -->
-    </li>
-  </ul>
-  <ul class="logout nav-links">
-    <li>
-      <div class="dropdown-title">
-        <a class="text-danger" href="#" (click)="logOut()">
-          <i class="pi pi-power-off"></i>
-          <!-- <span >Cerrar sesión</span> -->
-        </a>
-      </div>
-    </li>
-  </ul>
-</div>
-<section class="home-section">
-  <div class="home-header">
-    <a class="navbar-brand" href="#">
-      <h4 class="text-white">
-        <img src="assets/images/cdmx-tlaloc.png" height="35">
-        <!-- <img src="assets/images/tlaloc.png" width="55" height="35"> -->
-        <span class="a-text" id="topBarTitle"> SIMOLLU</span>
-      </h4>
-    </a>
-  </div>
-</section>
+	<div class="d-flex align-items-center mt-5 p-3">
+		<img src="https://randomuser.me/api/portraits/women/70.jpg" style="height:70px" class="rounded-circle"
+			alt="Profile">
+		<div class="ms-3 profile-info">
+			<h6 class="text-white fs-5 mb-0">Alex Morgan L.</h6>
+			<small class="text-white fs-5">Admin</small>
+		</div>
+	</div>
+
+	<div class="nav flex-column">
+		<a href="#" class="sidebar-link active text-decoration-none short-on-collapse text-start p-3 fs-5">
+			<i class="me-3">ES</i>
+			<span class="hide-on-collapse">Estructura</span>
+		</a>
+		<a href="#" class="sidebar-link text-decoration-none short-on-collapse text-start p-3 fs-5">
+			<i class="me-3">EM</i>
+			<span class="hide-on-collapse">Empleados</span>
+		</a>
+		<a href="#" class="sidebar-link text-decoration-none short-on-collapse text-start p-3 fs-5">
+			<i class="me-3">RE</i>
+			<span class="hide-on-collapse">Reportes</span>
+		</a>
+		<a href="#" class="sidebar-link text-decoration-none short-on-collapse text-start p-3 fs-5">
+			<i class="me-3 ">LO</i>
+			<span class="hide-on-collapse">logs</span>
+		</a>
+		<a href="#" class="sidebar-link text-decoration-none short-on-collapse text-start p-3 fs-5">
+			<i class="me-3">PE</i>
+			<span class="hide-on-collapse">Permisos</span>
+		</a>
+	</div>
+	<button type="button" class="btn btn-secondary mx-3 mt-3 fs-5 hide-on-collapse">Exit</button>
+</nav>

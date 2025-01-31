@@ -1,49 +1,26 @@
-import { Component,OnInit } from '@angular/core';
-import { AuthService } from './services/autentication/auth'; 
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { HeaderComponent } from "./Components/shared/header/header.component";
+import { SidebarComponent } from "./Components/shared/sidebar/sidebar.component";
+
 @Component({
   selector: 'app-root',
-  standalone:false,
+  imports: [RouterOutlet, HeaderComponent, SidebarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-// imports: [
-//   DataTablesModule
-//   ]
 export class AppComponent {
-  title = 'admin_page';
+  title = 'area_admon';
   hasUser: boolean = false;
-  user: any;
-  sidebarExpanded = false;
+  adjust: boolean = false;
 
-  constructor(
-    private auth: AuthService,
-  ) {
-    this.auth.getUserLoggedInData.subscribe((data: any) => {
-      if (data) {
-        this.hasUser = true;
-        const element = document.getElementById("sidebar");
-        element?.classList.remove("logout");
-      } else {
-        this.hasUser = false;
-        const element = document.getElementById("sidebar");
-        element?.classList.remove("expanded");
-        element?.classList.add("logout");
-        this.auth.logOut();
-      }
-    });
+  sideBarAdjust(message: boolean) {
+    this.adjust = message;
   }
 
-  ngOnInit(): void {
+  change(){
+    this.hasUser = !this.hasUser
+    //al ceerrar sesion debe ser adjust = false
   }
-
-  addItem(open: boolean) {
-    this.sidebarExpanded = open;
-    const element = document.getElementById("sidebar");
-    if (this.sidebarExpanded) {
-      element?.classList.add("expanded");
-    } else {
-      element?.classList.remove("expanded");
-    }
-  }
-
 }
+

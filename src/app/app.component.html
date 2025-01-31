@@ -1,7 +1,10 @@
-<app-sidebar *ngIf="hasUser" (sideBar)="addItem($event)"></app-sidebar>
-<app-header></app-header>
-<!-- <app-footer *ngIf="hasUser == false"></app-footer> -->
-<!-- <app-sidebar (sideBar)="addItem($event)"></app-sidebar> -->
-<div class="contenido" id="sidebar">
-  <router-outlet></router-outlet>
+<div class="d-flex">
+  @if (hasUser) {
+    <app-sidebar (sidebarCollapsed)="sideBarAdjust($event)"></app-sidebar>
+  }
+  <div class="container-fluid height backcolor px-0" [class.header-sidebar]="adjust && hasUser" [class.header-sidebar-collapsed]="!adjust && hasUser" >
+    <app-header></app-header>
+    <button (click)="change()">activar sidebaxxr</button>
+    <router-outlet></router-outlet>
+  </div>
 </div>

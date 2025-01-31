@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'admin_page' title`, () => {
+  it(`should have the 'area_admon' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('admin_page');
+    expect(app.title).toEqual('area_admon');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, admin_page');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, area_admon');
   });
 });

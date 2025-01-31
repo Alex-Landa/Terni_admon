@@ -1,0 +1,20 @@
+$color_1: #a0a3bd;
+$color_2: #ffffff;
+$background-color_1: #bcd5ee;
+
+.header-sidebar {
+	margin-left: 280px;
+	transition: all 0.2s ease;
+}
+
+.header-sidebar-collapsed {
+	margin-left: 105px;
+	transition: all 0.2s ease;
+}
+
+.height {
+	height: 100vh;
+}
+.backcolor {
+	background-color: $background-color_1;
+}

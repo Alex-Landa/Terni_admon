@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Input, Output, OnInit } from "@angular/core";
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { Component } from '@angular/core';
+import { SidebarComponent } from "../sidebar/sidebar.component";
+
 @Component({
   selector: 'app-header',
+  imports: [SidebarComponent],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
+  
 }
